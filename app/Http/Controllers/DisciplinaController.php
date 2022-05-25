@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUsuarioRequest;
-use App\Http\Requests\UpdateUsuarioRequest;
-use App\Models\Usuario;
+use App\Http\Requests\StoreDisciplinaRequest;
+use App\Http\Requests\UpdateDisciplinaRequest;
+use App\Models\Disciplina;
 
-class UsuarioController extends Controller
+class DisciplinaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,23 +31,24 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUsuarioRequest  $request
+     * @param  \App\Http\Requests\StoreDisciplinaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUsuarioRequest $request)
+    public function store(StoreDisciplinaRequest $request)
     {
         try {
-            Usuario::create(
+
+            /**
+             * Instancia a model Disciplina e cria uma disciplina
+             */
+            
+            Disciplina::create(
                 [
-                    'nome' => $request->get('nome'),
-                    'cpf' => $requesst->get('cpf'),
-                    'email' => $request->get('email'),
-                    'genero' => $request->get('genero'),
-                    'logradouro' => $request->get('logradouro'),
-                    'bairro' => $request->get('bairro'),
+                    'id_usuario' => $request->get('id_usuario'),
                     'numero' => $request->get('numero'),
-                    'celular' => $request->get('celular'),
-                    'id_tipo' => $request->get('id_tipo')
+                    'nome' => $request->get('nome'),
+                    'turno' => $request->get('turno'),
+                    'carga_horaria' => $request->get('carga_horaria')
                 ]
             );
         } catch(Exception $e) {
@@ -58,10 +59,10 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Disciplina  $disciplina
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show(Disciplina $disciplina)
     {
         //
     }
@@ -69,10 +70,10 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Disciplina  $disciplina
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario)
+    public function edit(Disciplina $disciplina)
     {
         //
     }
@@ -80,11 +81,11 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsuarioRequest  $request
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Http\Requests\UpdateDisciplinaRequest  $request
+     * @param  \App\Models\Disciplina  $disciplina
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
+    public function update(UpdateDisciplinaRequest $request, Disciplina $disciplina)
     {
         //
     }
@@ -92,10 +93,10 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Disciplina  $disciplina
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Disciplina $disciplina)
     {
         //
     }
