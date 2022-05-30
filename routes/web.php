@@ -40,10 +40,7 @@ Route::prefix('/professor')->group(function() {
         return 1;
     });
 
-    Route::post('/criar', function() {
-        return 2;
-    });
-
+    Route::post('/criar', [UsuarioController::class, 'store']);
     Route::delete('/excluir', function() {
         return 3;
     });
@@ -65,9 +62,7 @@ Route::prefix('/aluno')->group(function() {
         return 1;
     });
 
-    Route::post('/criar', function() {
-        return 2;
-    });
+    Route::post('/criar', [UsuarioController::class, 'store']);
 
     Route::delete('/excluir', function() {
         return 3;
